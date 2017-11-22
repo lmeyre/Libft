@@ -6,13 +6,13 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 14:57:26 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/22 16:09:13 by lmeyre           ###   ########.fr       */
+/*   Updated: 2017/11/23 00:09:37 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_rchar_tab(char	**tab)
+void	ft_rchar_tab(char **tab)
 {
 	int	i;
 
