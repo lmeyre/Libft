@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lst_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 13:28:00 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/22 01:15:02 by lmeyre           ###   ########.fr       */
+/*   Created: 2017/11/15 20:13:19 by lmeyre            #+#    #+#             */
+/*   Updated: 2017/11/22 23:15:40 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+t_list	*ft_lst_map(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int		i;
+	t_list	*curr;
 
-	if (!s)
+	if (!(lst))
 		return (NULL);
-	i = ft_strlen(s);
-	if (c != '\0')
-		i--;
-	while (i >= 0)
-	{
-		if (s[i] == (char)c)
-			return ((char*)s + i);
-		i--;
-	}
-	return (0);
+	if (!(curr = ft_lst_new(lst->content, lst->content_size)))
+		return (NULL);
+	curr = f(curr);
+	curr->next = ft_lst_map(lst->next,f);
+	return (curr);
 }

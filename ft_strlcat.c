@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 13:26:15 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/17 18:41:59 by lmeyre           ###   ########.fr       */
+/*   Updated: 2017/11/22 14:39:03 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 	int		j;
 	size_t	k;
 
+	if (!dst || !src)
+		return (-1);
 	i = 0;
 	j = 0;
-	while (dst[i] != '\0')
+	while (dst[i])
 		i++;
 	while (src[j])
 		j++;

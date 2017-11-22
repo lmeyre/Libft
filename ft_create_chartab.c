@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_create_chartab.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 13:28:00 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/22 01:15:02 by lmeyre           ###   ########.fr       */
+/*   Created: 2017/11/22 16:08:20 by lmeyre            #+#    #+#             */
+/*   Updated: 2017/11/22 19:18:13 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	**ft_create_chartab(int size, int sizelittle)
 {
 	int		i;
+	char	**tab;
 
-	if (!s)
+	i = 0;
+	if (!(tab = (char**)malloc(sizeof(char*) * (size + 1))))
 		return (NULL);
-	i = ft_strlen(s);
-	if (c != '\0')
-		i--;
-	while (i >= 0)
+	while (size > i)
 	{
-		if (s[i] == (char)c)
-			return ((char*)s + i);
-		i--;
+		if (!(tab[i] = (char*)malloc(sizeof(char) * (sizelittle + 1))))
+			return (NULL);
+		++i;
 	}
-	return (0);
+	tab[i] = NULL;
+	return (tab);
 }

@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 13:28:00 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/22 01:15:02 by lmeyre           ###   ########.fr       */
+/*   Created: 2017/11/07 10:44:18 by lmeyre            #+#    #+#             */
+/*   Updated: 2017/11/22 20:48:52 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int		ft_recursive_factorial(int nb)
 {
-	int		i;
-
-	if (!s)
-		return (NULL);
-	i = ft_strlen(s);
-	if (c != '\0')
-		i--;
-	while (i >= 0)
-	{
-		if (s[i] == (char)c)
-			return ((char*)s + i);
-		i--;
-	}
-	return (0);
+	if (nb == 1 || nb == 0)
+		return (1);
+	else if (nb < 0 || nb > 12)
+		return (0);
+	else
+		return (nb * (ft_recursive_factorial(nb - 1)));
 }

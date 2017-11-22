@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 21:16:25 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/19 20:39:33 by lmeyre           ###   ########.fr       */
+/*   Updated: 2017/11/22 23:22:32 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 typedef struct		s_list
 {
@@ -25,13 +28,28 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+t_list				*ft_lst_push_params(int argc, char **argv);
+t_list				*ft_lst_last(t_list *lst);
+int					ft_lst_size(t_list *lst);
+void				ft_lst_add_end(t_list **lst, t_list *mew);
+void				ft_swap_str(char *a, char *b);
+void				ft_is_negative(int n);
+int					*ft_range(int min, int max);
+int					ft_recursive_factorial(int nb);
+void				ft_sort_params(int argc, char **argv);
+void				ft_print_params(int argc, char **argv);
+int					ft_sqrt(int nb);
+void				ft_swap(int *a, int *b);
+void				ft_display_file(int argc, char **argv);
+char				**ft_create_chartab(int size, int sizelittle);
+void				ft_rchar_tab(char **tab);
 int					ft_isprint(int c);
-t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list				*ft_lsti_map(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-void				ft_lstadd(t_list **alst, t_list *mew);
-void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
-t_list				*ft_lstnew(void const *content, size_t content_size);
+void				ft_lst_add(t_list **alst, t_list *mew);
+void				ft_lst_del(t_list **alst, void (*del)(void *, size_t));
+void				ft_lst_del_one(t_list **alst, void (*del)(void*, size_t));
+t_list				*ft_lst_new(void const *content, size_t content_size);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putstr_fd(char const *s, int fd);

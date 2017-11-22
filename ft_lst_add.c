@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_lst_add.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 19:49:08 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/19 17:18:41 by lmeyre           ###   ########.fr       */
+/*   Updated: 2017/11/22 23:13:39 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *mew)
+void	ft_lst_add(t_list **alst, t_list *mew)
 {
 	t_list *tmp;
 
+	if (!(alst) || !(mew))
+		return ;
 	tmp = *alst;
 	*alst = mew;
 	mew->next = tmp;

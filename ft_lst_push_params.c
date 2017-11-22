@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lst_push_params.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 13:28:00 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/22 01:15:02 by lmeyre           ###   ########.fr       */
+/*   Created: 2017/11/22 23:20:01 by lmeyre            #+#    #+#             */
+/*   Updated: 2017/11/22 23:48:42 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+t_list		*ft_lst_push_params(int argc, char **argv)
 {
 	int		i;
-
-	if (!s)
+	t_list	*start;
+	if (argc < 2)
 		return (NULL);
-	i = ft_strlen(s);
-	if (c != '\0')
-		i--;
-	while (i >= 0)
+	i = 1;
+	if (!(start = ft_lst_new(argv[i], ft_strlen(argv[i]))))
+		return (NULL);
+	++i;
+	while (i < argc)
 	{
-		if (s[i] == (char)c)
-			return ((char*)s + i);
-		i--;
+		ft_lst_add_end(&start, ft_lst_new(argv[i],ft_strlen(argv[i])));
+		++i;
 	}
-	return (0);
+	return (start);
 }

@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 17:14:02 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/19 21:55:49 by lmeyre           ###   ########.fr       */
+/*   Updated: 2017/11/22 19:23:31 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ char	*ft_strtrim(char const *s)
 			end = k;
 		k++;
 	}
-	return (ptr = ft_strsub(s, start, end - start + 1));
+	ptr = ft_strsub(s, start, end - start + 1);
+	return (ptr);
 }

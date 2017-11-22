@@ -6,7 +6,7 @@
 #    By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 14:34:52 by lmeyre            #+#    #+#              #
-#    Updated: 2017/11/21 19:41:13 by lmeyre           ###   ########.fr        #
+#    Updated: 2017/11/22 23:22:50 by lmeyre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,64 +14,7 @@ NAME = libft.a
 
 FLAG = -Wall -Wextra -Werror
 
-SRC =	ft_atoi.c\
-		ft_bzero.c\
-		ft_isalnum.c\
-		ft_isalpha.c\
-		ft_isascii.c\
-		ft_isdigit.c\
-		ft_isprint.c\
-		ft_itoa.c\
-		ft_lstadd.c\
-		ft_lstiter.c\
-		ft_lstdel.c\
-		ft_lstdelone.c\
-		ft_lstmap.c\
-		ft_lstnew.c\
-		ft_memalloc.c\
-		ft_memchr.c\
-		ft_memmove.c\
-		ft_memcpy.c\
-		ft_memdel.c\
-		ft_putchar_fd.c\
-		ft_memset.c\
-		ft_putendl_fd.c\
-		ft_putchar.c\
-		ft_putendl.c\
-		ft_putnbr_fd.c\
-		ft_putstr_fd.c\
-		ft_strcat.c\
-		ft_strclr.c\
-		ft_strcpy.c\
-		ft_strequ.c\
-		ft_putnbr.c\
-		ft_strchr.c\
-		ft_putstr.c\
-		ft_strdel.c\
-		ft_memcmp.c\
-		ft_strlen.c\
-		ft_strmap.c\
-		ft_strncmp.c\
-		ft_strnew.c\
-		ft_strdup.c\
-		ft_strnequ.c\
-		ft_strmapi.c\
-		ft_strlcat.c\
-		ft_strnstr.c\
-		ft_strsplit.c\
-		ft_strncpy.c\
-		ft_strsub.c\
-		ft_strncat.c\
-		ft_tolower.c\
-		ft_strtrim.c\
-		ft_toupper.c\
-		ft_strstr.c\
-		ft_strrchr.c\
-		ft_strjoin.c\
-		ft_striter.c\
-		ft_strcmp.c\
-		ft_memccpy.c\
-		ft_striteri.c\
+SRC =	ft_lst_push_params.c ft_lst_last.c ft_lst_size.c ft_lst_add_end.c ft_swap_str.c ft_display_file.c ft_swap.c ft_sqrt.c ft_sort_params.c ft_recursive_factorial.c ft_range.c ft_print_params.c ft_is_negative.c ft_create_chartab.c ft_rchar_tab.c ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_lst_add.c ft_lstiter.c ft_lst_del.c ft_lst_del_one.c ft_lst_map.c ft_lst_new.c ft_memalloc.c ft_memchr.c ft_memmove.c ft_memcpy.c ft_memdel.c ft_putchar_fd.c ft_memset.c ft_putendl_fd.c ft_putchar.c ft_putendl.c ft_putnbr_fd.c ft_putstr_fd.c ft_strcat.c ft_strclr.c ft_strcpy.c ft_strequ.c ft_putnbr.c ft_strchr.c ft_putstr.c ft_strdel.c ft_memcmp.c ft_strlen.c ft_strmap.c ft_strncmp.c ft_strnew.c ft_strdup.c ft_strnequ.c ft_strmapi.c ft_strlcat.c ft_strnstr.c ft_strsplit.c ft_strncpy.c ft_strsub.c ft_strncat.c ft_tolower.c ft_strtrim.c ft_toupper.c ft_strstr.c ft_strrchr.c ft_strjoin.c ft_striter.c ft_strcmp.c ft_memccpy.c ft_striteri.c
 
 HEADER = libft.h
 
@@ -80,16 +23,16 @@ BIN = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(BIN) $(HEADER)
-	ar rc $(NAME) $(BIN)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(BIN)
+	@ranlib $(NAME)
 
 %.o: %.c $(HEADER)
-	gcc -o $@ -c $< -I ./ $(FLAG)
+	@gcc -o $@ -c $< -I ./ $(FLAG)
 
 clean: 
-	/bin/rm -rf $(BIN)
+	@/bin/rm -rf $(BIN)
 
 fclean: clean
-	/bin/rm -rf $(NAME)
+	@/bin/rm -rf $(NAME)
 
 re: fclean all

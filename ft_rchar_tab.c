@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_rchar_tab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 13:28:00 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/22 01:15:02 by lmeyre           ###   ########.fr       */
+/*   Created: 2017/11/22 14:57:26 by lmeyre            #+#    #+#             */
+/*   Updated: 2017/11/22 16:09:13 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_rchar_tab(char	**tab)
 {
-	int		i;
+	int	i;
 
-	if (!s)
-		return (NULL);
-	i = ft_strlen(s);
-	if (c != '\0')
-		i--;
-	while (i >= 0)
+	i = 0;
+	while (tab[i])
 	{
-		if (s[i] == (char)c)
-			return ((char*)s + i);
-		i--;
+		ft_putstr(tab[i]);
+		ft_putchar('\n');
+		++i;
 	}
-	return (0);
 }

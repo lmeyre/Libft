@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 13:28:00 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/22 01:15:02 by lmeyre           ###   ########.fr       */
+/*   Created: 2017/11/07 16:08:20 by lmeyre            #+#    #+#             */
+/*   Updated: 2017/11/22 20:49:58 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int		*ft_range(int min, int max)
 {
-	int		i;
+	int i;
+	int size;
+	int *array;
 
-	if (!s)
+	i = 0;
+	if (min >= max)
 		return (NULL);
-	i = ft_strlen(s);
-	if (c != '\0')
-		i--;
-	while (i >= 0)
+	size = max - min;
+	if (!(array = (int*)malloc(sizeof(int) * (size))))
+		return (0);
+	while (i < size)
 	{
-		if (s[i] == (char)c)
-			return ((char*)s + i);
-		i--;
+		array[i] = min;
+		min++;
+		i++;
 	}
-	return (0);
+	return (array);
 }

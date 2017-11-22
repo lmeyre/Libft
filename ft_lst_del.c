@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lst_del.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 13:28:00 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/22 01:15:02 by lmeyre           ###   ########.fr       */
+/*   Created: 2017/11/15 19:19:19 by lmeyre            #+#    #+#             */
+/*   Updated: 2017/11/22 23:13:09 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_lst_del(t_list **alst, void (*del)(void *, size_t))
 {
-	int		i;
+	t_list	*curr;
+	t_list	*tmp2;
 
-	if (!s)
-		return (NULL);
-	i = ft_strlen(s);
-	if (c != '\0')
-		i--;
-	while (i >= 0)
+	if (!(del) || !(alst) || !(*alst))
+		return ;
+	del((*alst)->content, (*alst)->content_size);
+	curr = (*alst)->next;
+	while (curr != NULL)
 	{
-		if (s[i] == (char)c)
-			return ((char*)s + i);
-		i--;
+		del(curr->content, curr->content_size);
+		tmp2 = curr->next;
+		free(curr);
+		curr = tmp2;
 	}
-	return (0);
+	free(*alst);
+	*alst = NULL;
 }

@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 19:19:19 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/19 17:14:26 by lmeyre           ###   ########.fr       */
+/*   Created: 2017/11/07 12:22:19 by lmeyre            #+#    #+#             */
+/*   Updated: 2017/11/22 21:10:45 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void		ft_sort_params(int argc, char **argv)
 {
-	t_list	*curr;
-	t_list	*tmp2;
+	int i;
 
-	del((*alst)->content, (*alst)->content_size);
-	curr = (*alst)->next;
-	while (curr != NULL)
+	i = 1;
+	if (argc == 1)
+		return ;
+	while ((i <= argc - 2))
 	{
-		del(curr->content, curr->content_size);
-		tmp2 = curr->next;
-		free(curr);
-		curr = tmp2;
+		if (ft_strcmp(argv[i + 1], argv[i]) == -1)
+		{
+			ft_swap_str(argv[i + 1], argv[i]);
+			i = 0;
+		}
+		i++;
 	}
-	free(*alst);
-	*alst = NULL;
+	i = 1;
+	while (i <= argc - 1)
+	{
+		ft_putstr(argv[i]);
+		ft_putchar('\n');
+		i++;
+	}
 }

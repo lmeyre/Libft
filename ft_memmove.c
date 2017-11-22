@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 13:24:20 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/21 16:54:21 by lmeyre           ###   ########.fr       */
+/*   Updated: 2017/11/22 01:01:38 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	const unsigned char	*psrc;
 	size_t				i;
 
+	if (!dst || !src)
+		return (NULL);
 	i = 0;
 	pdest = dst;
 	psrc = src;

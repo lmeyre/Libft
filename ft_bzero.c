@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 13:21:39 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/13 23:41:35 by lmeyre           ###   ########.fr       */
+/*   Updated: 2017/11/22 00:28:42 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_bzero(void *s, size_t n)
 {
 	unsigned char *ptr;
 
+	if (!(s))
+		return ;
 	ptr = s;
 	while (n > 0)
 	{

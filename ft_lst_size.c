@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lst_size.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 13:28:00 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/22 01:15:02 by lmeyre           ###   ########.fr       */
+/*   Created: 2017/11/22 21:39:27 by lmeyre            #+#    #+#             */
+/*   Updated: 2017/11/22 23:15:13 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int		ft_lst_size(t_list	*lst)
 {
-	int		i;
+	int count;
 
-	if (!s)
-		return (NULL);
-	i = ft_strlen(s);
-	if (c != '\0')
-		i--;
-	while (i >= 0)
+	count = 0;
+	if (!lst)
+		return (count);
+	while(lst)
 	{
-		if (s[i] == (char)c)
-			return ((char*)s + i);
-		i--;
+		++count;
+		lst = lst->next;
 	}
-	return (0);
+	return (count);
 }

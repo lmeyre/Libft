@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 14:46:59 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/19 21:29:35 by lmeyre           ###   ########.fr       */
+/*   Updated: 2017/11/22 01:09:37 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*dest;
 
 	dest = NULL;
-	if (!(s))
+	if (!(s) || !(f))
 		return (dest);
 	i = 0;
 	while (s[i])
