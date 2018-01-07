@@ -6,11 +6,11 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 23:20:01 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/23 00:14:46 by lmeyre           ###   ########.fr       */
+/*   Updated: 2017/12/12 22:10:31 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 t_list		*ft_lst_push_params(int argc, char **argv)
 {
@@ -20,12 +20,12 @@ t_list		*ft_lst_push_params(int argc, char **argv)
 	if (argc < 2)
 		return (NULL);
 	i = 1;
-	if (!(start = ft_lst_new(argv[i], ft_strlen(argv[i]))))
+	if (!(start = ft_lst_new(sizeof(argv[i]))))
 		return (NULL);
 	++i;
 	while (i < argc)
 	{
-		ft_lst_add_end(&start, ft_lst_new(argv[i], ft_strlen(argv[i])));
+		ft_lst_add_end(&start, ft_lst_new(sizeof(argv[i])));
 		++i;
 	}
 	return (start);

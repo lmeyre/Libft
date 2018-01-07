@@ -6,11 +6,11 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 18:03:00 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/21 16:53:43 by lmeyre           ###   ########.fr       */
+/*   Updated: 2017/12/03 16:40:27 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 static int			words_nbr(const char *s, char c)
 {

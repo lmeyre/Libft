@@ -6,13 +6,13 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 11:43:53 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/22 20:25:34 by lmeyre           ###   ########.fr       */
+/*   Updated: 2017/11/27 17:25:20 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
-#define BUF_SIZE 1000
+#define BUF_SIZE 100
 
 void	ft_display_file(int argc, char **argv)
 {
