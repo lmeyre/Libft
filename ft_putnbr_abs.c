@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_lst.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_abs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 11:59:08 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/12/05 19:10:00 by lmeyre           ###   ########.fr       */
+/*   Created: 2018/01/24 23:57:02 by lmeyre            #+#    #+#             */
+/*   Updated: 2018/01/24 23:57:12 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-t_list	*ft_create_lst(int size)
+void	ft_putnbr_abs(long long int n)
 {
-	t_list	*start;
-	t_list	*curr;
-	t_list	*prev;
-
-	start = ft_lst_new(0);
-	curr = start;
-	prev = NULL;
-	while (size > 0)
+	if (n == LONG_MIN)
 	{
-		curr->next = ft_lst_new(0);
-		curr->prev = prev;
-		prev = curr;
-		curr = curr->next;
-		--size;
+		ft_putstr("9223372036854775808");
+		return ;
 	}
-	return (start);
+	else if (n < 0)
+		n = n * -1;
+	if (n > 9)
+	{
+		ft_putnbr_abs(n / 10);
+		ft_putnbr_abs(n % 10);
+	}
+	else
+		ft_putchar(n + '0');
 }

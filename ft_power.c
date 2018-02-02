@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_lst.c                                    :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 11:59:08 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/12/05 19:10:00 by lmeyre           ###   ########.fr       */
+/*   Created: 2018/01/24 23:55:17 by lmeyre            #+#    #+#             */
+/*   Updated: 2018/01/24 23:56:50 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-t_list	*ft_create_lst(int size)
+long long	ft_power(long long n, int power)
 {
-	t_list	*start;
-	t_list	*curr;
-	t_list	*prev;
-
-	start = ft_lst_new(0);
-	curr = start;
-	prev = NULL;
-	while (size > 0)
-	{
-		curr->next = ft_lst_new(0);
-		curr->prev = prev;
-		prev = curr;
-		curr = curr->next;
-		--size;
-	}
-	return (start);
+	if (power < 0)
+		return (0);
+	else if (power == 0)
+		return ((long long)1);
+	else if (power == 1)
+		return (n);
+	return (n * ft_power(n, power - 1));
 }

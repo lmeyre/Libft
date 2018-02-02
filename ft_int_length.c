@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_lst.c                                    :+:      :+:    :+:   */
+/*   ft_int_length.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 11:59:08 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/12/05 19:10:00 by lmeyre           ###   ########.fr       */
+/*   Created: 2018/01/07 18:35:34 by lmeyre            #+#    #+#             */
+/*   Updated: 2018/01/24 23:52:59 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-t_list	*ft_create_lst(int size)
+int	ft_int_length(long long int i)
 {
-	t_list	*start;
-	t_list	*curr;
-	t_list	*prev;
+	int j;
 
-	start = ft_lst_new(0);
-	curr = start;
-	prev = NULL;
-	while (size > 0)
+	j = 0;
+	if (i == 0)
+		return (1);
+	while (i >= 1 || i <= -1)
 	{
-		curr->next = ft_lst_new(0);
-		curr->prev = prev;
-		prev = curr;
-		curr = curr->next;
-		--size;
+		i /= 10;
+		j++;
 	}
-	return (start);
+	return (j);
 }

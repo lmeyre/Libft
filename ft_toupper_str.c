@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_lst.c                                    :+:      :+:    :+:   */
+/*   ft_toupper_str.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 11:59:08 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/12/05 19:10:00 by lmeyre           ###   ########.fr       */
+/*   Created: 2018/01/07 18:05:54 by lmeyre            #+#    #+#             */
+/*   Updated: 2018/01/07 18:05:56 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-t_list	*ft_create_lst(int size)
+char	*ft_toupper_str(char *str)
 {
-	t_list	*start;
-	t_list	*curr;
-	t_list	*prev;
+	int i;
 
-	start = ft_lst_new(0);
-	curr = start;
-	prev = NULL;
-	while (size > 0)
+	i = 0;
+	while (str[i])
 	{
-		curr->next = ft_lst_new(0);
-		curr->prev = prev;
-		prev = curr;
-		curr = curr->next;
-		--size;
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] - 32;
+		++i;
 	}
-	return (start);
+	return (str);
 }

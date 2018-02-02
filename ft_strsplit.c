@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 18:03:00 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/12/03 16:40:27 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/01/25 16:18:12 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,11 @@ static char			**ft_tab(char **tab, char const *s, int k, int c)
 char				**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
-	int		i;
-	int		k;
 
 	if (!(s))
 		return (0);
-	k = 0;
-	i = 0;
 	if (!(tab = (char**)malloc(sizeof(char*) * (words_nbr(s, c) + 1))))
 		return (0);
-	i = words_nbr(s, c);
-	i = 0;
-	tab = ft_tab(tab, s, k, c);
+	tab = ft_tab(tab, s, 0, c);
 	return (tab);
 }

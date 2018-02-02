@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 18:28:36 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/12/17 21:27:34 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/01/30 11:52:40 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include "limits.h"
+# include <stdarg.h>
 
 typedef struct		s_list
 {
@@ -27,6 +29,18 @@ typedef struct		s_list
 	struct s_list	*prev;
 }					t_list;
 
+void				ft_strdel_two(char **as, char **asbis);
+void				ft_putwstr(wchar_t *wstr);
+char				*ft_str_replace(char *str, char old, char mew);
+char				*ft_base_conv(char *str, int base_src, int base_dest);
+void				ft_putwchar(wchar_t wchar);
+long long			ft_power(long long n, int power);
+void				ft_putlong_unsigned(unsigned long long n);
+char				*ft_itoa_base_unsigned(unsigned long long n, int base);
+void				ft_putlong(long long n);
+void				ft_putnbr_abs(long long int n);
+int					ft_int_length(long long int i);
+char				*ft_toupper_str(char *str);
 char				*ft_itoa_base(long long n, int base);
 char				*ft_strjoin_free(char *s1, char *s2, char **out);
 void				ft_free_strtab(char ***tab);
@@ -47,6 +61,7 @@ void				ft_sort_params(int argc, char **argv);
 void				ft_print_params(int argc, char **argv);
 int					ft_sqrt(int nb);
 void				ft_swap(int *a, int *b);
+int					ft_strcmp_n(const char *s1, const char *s2, int size);
 void				ft_display_file(int argc, char **argv);
 char				**ft_create_chartab(int size, int sizelittle);
 void				ft_rchar_tab(char **tab);
