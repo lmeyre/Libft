@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup_free.c                                   :+:      :+:    :+:   */
+/*   ft_lst_getend.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/07 20:47:19 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/12/14 23:34:23 by lmeyre           ###   ########.fr       */
+/*   Created: 2018/03/03 18:29:15 by lmeyre            #+#    #+#             */
+/*   Updated: 2018/03/03 18:29:26 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-char	*ft_strdup_free(const char *s1, char **out)
+t_list		*ft_lst_getend(t_list *lst)
 {
-	int		i;
-	char	*s2;
-
-	if (!s1)
+	if (!lst)
 		return (NULL);
-	i = ft_strlen(s1);
-	if (!(s2 = (char*)ft_memalloc(sizeof(char) * (1 + i))))
-		return (0);
-	s2[i] = '\0';
-	while (i >= 0)
-	{
-		s2[i] = s1[i];
-		i--;
-	}
-	if (*out)
-		ft_strdel(out);
-	return (s2);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

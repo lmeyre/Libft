@@ -69,7 +69,7 @@ char				**ft_strsplit(char const *s, char c)
 
 	if (!(s))
 		return (0);
-	if (!(tab = (char**)malloc(sizeof(char*) * (words_nbr(s, c) + 1))))
+	if (!(tab = (char**)ft_memalloc(sizeof(char*) * (words_nbr(s, c) + 1))))
 		return (0);
 	tab = ft_tab(tab, s, 0, c);
 	return (tab);

@@ -12,13 +12,15 @@
 
 #include "includes/libft.h"
 
-void	ft_lst_add(t_list **alst, t_list *mew)
+int	ft_lst_add(t_list **alst, t_list *mew)
 {
 	t_list *tmp;
 
-	if (!(alst) || !(mew))
-		return ;
+	if (!(alst) || !(mew) || !(*alst))
+		return (0);
 	tmp = *alst;
 	*alst = mew;
 	mew->next = tmp;
+	tmp->prev = *alst;
+	return (1);
 }

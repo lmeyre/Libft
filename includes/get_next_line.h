@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup_free.c                                   :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/07 20:47:19 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/12/14 23:34:23 by lmeyre           ###   ########.fr       */
+/*   Created: 2017/11/27 16:08:32 by lmeyre            #+#    #+#             */
+/*   Updated: 2018/02/22 20:29:06 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFF_SIZE 4096
+# define CNTT ((t_fd*)(lst->content))
 
-char	*ft_strdup_free(const char *s1, char **out)
+# include "./libft.h"
+
+typedef struct	s_fd
 {
-	int		i;
-	char	*s2;
+	char		*tmp;
+	int			fd;
+	struct s_fd	*next;
+}				t_fd;
 
-	if (!s1)
-		return (NULL);
-	i = ft_strlen(s1);
-	if (!(s2 = (char*)ft_memalloc(sizeof(char) * (1 + i))))
-		return (0);
-	s2[i] = '\0';
-	while (i >= 0)
-	{
-		s2[i] = s1[i];
-		i--;
-	}
-	if (*out)
-		ft_strdel(out);
-	return (s2);
-}
+typedef struct	s_filler
+{
+	int			ret;
+	char		*buf;
+	int			bool;
+	int			boolbis;
+	int			lll;
+}				t_filler;
+
+int				get_next_line(int fd, char **line);
+#endif

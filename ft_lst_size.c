@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/23 00:11:06 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/23 00:11:23 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/03/03 18:27:21 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 int		ft_lst_size(t_list *lst)
 {
-	int count;
+	int		count;
+	t_list	*tmp;
 
 	count = 0;
 	if (!lst)
 		return (count);
-	while (lst)
+	tmp = lst;
+	while (tmp)
 	{
 		++count;
-		lst = lst->next;
+		tmp = tmp->next;
 	}
 	return (count);
 }

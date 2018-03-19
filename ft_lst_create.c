@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup_free.c                                   :+:      :+:    :+:   */
+/*   ft_create_lst.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/07 20:47:19 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/12/14 23:34:23 by lmeyre           ###   ########.fr       */
+/*   Created: 2017/12/02 11:59:08 by lmeyre            #+#    #+#             */
+/*   Updated: 2018/02/18 11:47:23 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-char	*ft_strdup_free(const char *s1, char **out)
+t_list	*ft_create_lst(int size, int content_size)
 {
-	int		i;
-	char	*s2;
+	t_list	*start;
+	t_list	*curr;
+	t_list	*prev;
 
-	if (!s1)
-		return (NULL);
-	i = ft_strlen(s1);
-	if (!(s2 = (char*)ft_memalloc(sizeof(char) * (1 + i))))
-		return (0);
-	s2[i] = '\0';
-	while (i >= 0)
+	start = ft_lst_new(content_size);
+	curr = start;
+	prev = NULL;
+	while (size > 1)
 	{
-		s2[i] = s1[i];
-		i--;
+		curr->next = ft_lst_new(content_size);
+		curr->prev = prev;
+		prev = curr;
+		curr = curr->next;
+		--size;
 	}
-	if (*out)
-		ft_strdel(out);
-	return (s2);
+	curr->prev = prev;
+	return (start);
 }

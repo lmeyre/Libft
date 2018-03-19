@@ -18,11 +18,11 @@ char	**ft_create_chartab(int size, int sizelittle)
 	char	**tab;
 
 	i = 0;
-	if (!(tab = (char**)malloc(sizeof(char*) * (size + 1))))
+	if (!(tab = (char**)ft_memalloc(sizeof(char*) * (size + 1))))
 		return (NULL);
 	while (size > i)
 	{
-		if (!(tab[i] = (char*)malloc(sizeof(char) * (sizelittle + 1))))
+		if (!(tab[i] = (char*)ft_memalloc(sizeof(char) * (sizelittle + 1))))
 			return (NULL);
 		++i;
 	}

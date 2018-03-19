@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp_n.c                                      :+:      :+:    :+:   */
+/*   ft_lst_reverse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/30 15:48:22 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/01/30 15:48:24 by lmeyre           ###   ########.fr       */
+/*   Created: 2018/03/03 18:26:55 by lmeyre            #+#    #+#             */
+/*   Updated: 2018/03/03 18:27:06 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_strcmp_n(const char *s1, const char *s2, int size)
+t_list		*ft_lst_reverse(t_list *lst)
 {
-	while (*s1 && *s2 && --size)
+	t_list *tmpnext;
+
+	if (!lst)
+		return (NULL);
+	while (lst)
 	{
-		if ((*s1 - *s2) != 0)
-			break ;
-		s1++;
-		s2++;
+		tmpnext = lst->next;
+		lst->next = lst->prev;
+		lst->prev = tmpnext;
+		if (tmpnext)
+			lst = tmpnext;
+		else
+			return (lst);
 	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	return (NULL);
 }

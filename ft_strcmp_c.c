@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup_free.c                                   :+:      :+:    :+:   */
+/*   ft_strcmp_c.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/07 20:47:19 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/12/14 23:34:23 by lmeyre           ###   ########.fr       */
+/*   Created: 2018/02/07 23:47:24 by lmeyre            #+#    #+#             */
+/*   Updated: 2018/03/03 18:22:07 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-char	*ft_strdup_free(const char *s1, char **out)
+int	ft_strcmp_c(const char *s1, const char *s2, char c)
 {
-	int		i;
-	char	*s2;
-
-	if (!s1)
-		return (NULL);
-	i = ft_strlen(s1);
-	if (!(s2 = (char*)ft_memalloc(sizeof(char) * (1 + i))))
+	if (!c)
 		return (0);
-	s2[i] = '\0';
-	while (i >= 0)
+	while (*s1 && *s2)
 	{
-		s2[i] = s1[i];
-		i--;
+		if (*s1 == c || *s2 == c)
+		{
+			s1--;
+			s2--;
+			break ;
+		}
+		if ((*s1 - *s2) != 0)
+			break ;
+		s1++;
+		s2++;
 	}
-	if (*out)
-		ft_strdel(out);
-	return (s2);
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
