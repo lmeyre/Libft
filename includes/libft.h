@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 18:28:36 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/03/03 18:19:30 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/03/22 22:00:06 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ char				*ft_strchr(const char *s, int c);
 void				ft_strclr(char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strcmp_c(const char *s1, const char *s2, char c);
+int					ft_strcmp_n(const char *s1, const char *s2, int size);
 char				*ft_strcpy(char *dest, const char *src);
 int					ft_strequ(char const *s1, char const *s2);
 void				ft_strdel(char **as);
