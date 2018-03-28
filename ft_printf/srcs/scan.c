@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-void		flag_start(t_ptf *env)
+void		printf_flag_start(t_ptf *env)
 {
 	if (env->frmt[env->index] == 'l' || env->frmt[env->index] == 'h'
 			|| env->frmt[env->index] == 'j' || env->frmt[env->index] == 'z')
@@ -40,7 +40,7 @@ void		flag_start(t_ptf *env)
 	}
 }
 
-void		precision_start(t_ptf *env)
+void		printf_precision_start(t_ptf *env)
 {
 	int x;
 
@@ -65,7 +65,7 @@ void		precision_start(t_ptf *env)
 	}
 }
 
-void		field_width_start(t_ptf *env)
+void		printf_field_width_start(t_ptf *env)
 {
 	int x;
 
@@ -80,7 +80,7 @@ void		field_width_start(t_ptf *env)
 	}
 }
 
-void		attrib_start(t_ptf *env)
+void		printf_attrib_start(t_ptf *env)
 {
 	while (env->frmt[env->index] == '#'
 			|| env->frmt[env->index] == '0' || env->frmt[env->index] == '-'
@@ -99,13 +99,13 @@ void		attrib_start(t_ptf *env)
 		env->zero = 0;
 }
 
-int			convertion_start(t_ptf *env, va_list *ap)
+int			printf_convertion_start(t_ptf *env, va_list *ap)
 {
 	char	tab_conv[17];
 	int		x;
 	void	(*trigger[16])(t_ptf*, va_list*, int);
 
-	init_conv_tab(trigger);
+	printf_init_conv_tab(trigger);
 	x = -1;
 	ft_strcpy(tab_conv, "dsioxXcSCpuDOU%b");
 	while (tab_conv[++x])
@@ -119,6 +119,6 @@ int			convertion_start(t_ptf *env, va_list *ap)
 			return (1);
 		}
 	}
-	handle_width_other(env, 1);
+	printf_handle_width_other(env, 1);
 	return (1);
 }

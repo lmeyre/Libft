@@ -73,10 +73,10 @@ static char			*filler(char c, unsigned long long i,
 static	void		exception(char *ptr, int fake, t_ptf *env)
 {
 	if (fake == 0)
-		ft_putstr_buff(env, ptr);
+		printf_ft_putstr_buff(env, ptr);
 	if (fake == 1 && (env->frmt[env->index] == 'o'
 		|| env->frmt[env->index] == 'O') && env->dieze == 1)
-		ft_putchar_buff(env, '0');
+		printf_ft_putchar_buff(env, '0');
 }
 
 static	void		write_base(t_ptf *env, char *ptr, char *bonus)
@@ -97,17 +97,17 @@ static	void		write_base(t_ptf *env, char *ptr, char *bonus)
 		--big;
 	}
 	if (env->zero == 0)
-		env->neg == 0 ? handle_width_other(env, big) : 0;
-	ft_putstr_buff(env, bonus);
+		env->neg == 0 ? printf_handle_width_other(env, big) : 0;
+	printf_ft_putstr_buff(env, bonus);
 	if (env->zero == 1)
-		(env->neg == 0) ? handle_width_other(env, big) : 0;
-	handle_precision_int(env, ft_strlen(ptr));
+		(env->neg == 0) ? printf_handle_width_other(env, big) : 0;
+	printf_handle_precision_int(env, ft_strlen(ptr));
 	exception(ptr, fake, env);
-	(env->neg == 1) ? handle_width_other(env, big) : 0;
+	(env->neg == 1) ? printf_handle_width_other(env, big) : 0;
 	(env->size) += big;
 }
 
-void				base_conv(t_ptf *env, va_list *ap, int big)
+void				printf_base_conv(t_ptf *env, va_list *ap, int big)
 {
 	unsigned long long	i;
 	char				*ptr;

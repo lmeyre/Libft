@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-t_ptf		*initialize_env(void)
+t_ptf		*printf_initialize_env(void)
 {
 	t_ptf *env;
 
@@ -39,7 +39,7 @@ t_ptf		*initialize_env(void)
 	return (env);
 }
 
-void		reset_value(t_ptf *env)
+void		printf_reset_value(t_ptf *env)
 {
 	env->dieze = 0;
 	env->zero = 0;
@@ -57,22 +57,22 @@ void		reset_value(t_ptf *env)
 	env->precision_on = 0;
 }
 
-void		init_conv_tab(void (*trigger[])(t_ptf*, va_list*, int))
+void		printf_init_conv_tab(void (*trigger[])(t_ptf*, va_list*, int))
 {
-	trigger[0] = &d_conv;
-	trigger[1] = &s_conv;
-	trigger[2] = &d_conv;
-	trigger[3] = &base_conv;
-	trigger[4] = &base_conv;
-	trigger[5] = &base_conv;
-	trigger[6] = &c_conv;
-	trigger[7] = &as_conv;
-	trigger[8] = &ac_conv;
-	trigger[9] = &p_conv;
-	trigger[10] = &base_conv;
-	trigger[11] = &d_conv;
-	trigger[12] = &base_conv;
-	trigger[13] = &base_conv;
-	trigger[14] = &percent_conv;
-	trigger[15] = &b_conv;
+	trigger[0] = &printf_d_conv;
+	trigger[1] = &printf_s_conv;
+	trigger[2] = &printf_d_conv;
+	trigger[3] = &printf_base_conv;
+	trigger[4] = &printf_base_conv;
+	trigger[5] = &printf_base_conv;
+	trigger[6] = &printf_c_conv;
+	trigger[7] = &printf_as_conv;
+	trigger[8] = &printf_ac_conv;
+	trigger[9] = &printf_p_conv;
+	trigger[10] = &printf_base_conv;
+	trigger[11] = &printf_d_conv;
+	trigger[12] = &printf_base_conv;
+	trigger[13] = &printf_base_conv;
+	trigger[14] = &printf_percent_conv;
+	trigger[15] = &printf_b_conv;
 }

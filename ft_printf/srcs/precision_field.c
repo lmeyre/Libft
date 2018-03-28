@@ -12,35 +12,35 @@
 
 #include "../includes/ft_printf.h"
 
-void		handle_width_other(t_ptf *env, int size)
+void		printf_handle_width_other(t_ptf *env, int size)
 {
 	while (env->width > size)
 	{
 		if (env->zero)
-			ft_putchar_buff(env, '0');
+			printf_ft_putchar_buff(env, '0');
 		else
-			ft_putchar_buff(env, ' ');
+			printf_ft_putchar_buff(env, ' ');
 		++size;
 		++(env->size);
 	}
 }
 
-void		handle_precision_int(t_ptf *env, int size)
+void		printf_handle_precision_int(t_ptf *env, int size)
 {
 	while (env->precision > size)
 	{
 		++size;
-		ft_putchar_buff(env, '0');
+		printf_ft_putchar_buff(env, '0');
 	}
 }
 
-void		handle_precision_str(t_ptf *env, char *str)
+void		printf_handle_precision_str(t_ptf *env, char *str)
 {
 	int i;
 
 	i = 0;
 	while (env->precision > i && str[i])
-		ft_putchar_buff(env, str[i++]);
+		printf_ft_putchar_buff(env, str[i++]);
 }
 
 static	int	filler(wchar_t *wstr, int j)
@@ -57,7 +57,7 @@ static	int	filler(wchar_t *wstr, int j)
 		return (-1);
 }
 
-void		handle_precision_wstr(t_ptf *env, wchar_t *wstr)
+void		printf_handle_precision_wstr(t_ptf *env, wchar_t *wstr)
 {
 	int i;
 	int j;
@@ -73,7 +73,7 @@ void		handle_precision_wstr(t_ptf *env, wchar_t *wstr)
 		if (env->precision >= i)
 		{
 			env->size += tmp;
-			reset_buf(env);
+			printf_reset_buf(env);
 			ft_putwchar(wstr[j]);
 		}
 		++j;

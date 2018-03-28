@@ -33,13 +33,13 @@ static	void		write_conv(t_ptf *env, long long x, int bigger, char *str)
 
 	fake = filler(env, x, &bigger);
 	if (env->zero == 0)
-		env->neg == 0 ? handle_width_other(env, bigger) : 0;
+		env->neg == 0 ? printf_handle_width_other(env, bigger) : 0;
 	size = ft_int_length(x);
-	x < 0 ? ft_putchar_buff(env, '-') : 0;
-	handle_pos(env, x);
+	x < 0 ? printf_ft_putchar_buff(env, '-') : 0;
+	printf_handle_pos(env, x);
 	if (env->zero == 1)
-		env->neg == 0 ? handle_width_other(env, bigger) : 0;
-	handle_precision_int(env, size);
+		env->neg == 0 ? printf_handle_width_other(env, bigger) : 0;
+	printf_handle_precision_int(env, size);
 	if (fake == 0)
 	{
 		env->frmt[env->index - 1] == 'b' ? str = ft_itoa_base(x, 2) : 0;
@@ -47,12 +47,12 @@ static	void		write_conv(t_ptf *env, long long x, int bigger, char *str)
 		if (!str)
 			return ;
 		else if (str[0] == '-')
-			ft_putstr_buff(env, str + 1);
+			printf_ft_putstr_buff(env, str + 1);
 		else
-			ft_putstr_buff(env, str);
+			printf_ft_putstr_buff(env, str);
 		ft_strdel(&str);
 	}
-	env->neg == 1 ? handle_width_other(env, bigger) : 0;
+	env->neg == 1 ? printf_handle_width_other(env, bigger) : 0;
 }
 
 static	long long	dconv_modif(t_ptf *env, long long x, va_list *ap)
@@ -82,7 +82,7 @@ static	long long	dconv_modif(t_ptf *env, long long x, va_list *ap)
 	return (x);
 }
 
-void				d_conv(t_ptf *env, va_list *ap, int count)
+void				printf_d_conv(t_ptf *env, va_list *ap, int count)
 {
 	long long	x;
 	int			bigger;
@@ -98,7 +98,7 @@ void				d_conv(t_ptf *env, va_list *ap, int count)
 	neg = (x < 0) ? 1 : 0;
 	if (env->pos == 1 && x >= 0)
 		++count;
-	handle_space(&count, neg, env);
+	printf_handle_space(&count, neg, env);
 	x < 0 ? ++count : 0;
 	bigger = count + (env->precision > ft_int_length(x) ?
 						env->precision : ft_int_length(x));
@@ -106,7 +106,7 @@ void				d_conv(t_ptf *env, va_list *ap, int count)
 	env->size += bigger;
 }
 
-void				b_conv(t_ptf *env, va_list *ap, int count)
+void				printf_b_conv(t_ptf *env, va_list *ap, int count)
 {
 	long long	x;
 	int			bigger;
@@ -121,7 +121,7 @@ void				b_conv(t_ptf *env, va_list *ap, int count)
 	neg = (x < 0) ? 1 : 0;
 	if (env->pos == 1 && x >= 0)
 		++count;
-	handle_space(&count, neg, env);
+	printf_handle_space(&count, neg, env);
 	x < 0 ? ++count : 0;
 	bigger = count + (env->precision > ft_int_length(x) ?
 						env->precision : ft_int_length(x));

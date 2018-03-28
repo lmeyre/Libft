@@ -12,17 +12,17 @@
 
 #include "../includes/ft_printf.h"
 
-void		handle_space(int *count, int neg, t_ptf *env)
+void		printf_handle_space(int *count, int neg, t_ptf *env)
 {
 	if (neg == 0 && env->space == 1)
 	{
-		ft_putchar_buff(env, ' ');
+		printf_ft_putchar_buff(env, ' ');
 		++(*count);
 	}
 }
 
-void		handle_pos(t_ptf *env, int number)
+void		printf_handle_pos(t_ptf *env, int number)
 {
 	if (env->pos == 1 && number >= 0)
-		ft_putchar_buff(env, '+');
+		printf_ft_putchar_buff(env, '+');
 }

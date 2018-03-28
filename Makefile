@@ -6,7 +6,7 @@
 #    By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 14:34:52 by lmeyre            #+#    #+#              #
-#    Updated: 2018/03/28 18:38:54 by lmeyre           ###   ########.fr        #
+#    Updated: 2018/03/28 22:58:12 by lmeyre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,23 +31,23 @@ BIN = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(PRINTF) $(BIN) $(HEADER)
-	@ar rc $(TMP) $(BIN)
-	@libtool -static -o $(NAME) $(PRINTF_DIR)/libftprintf.a $(TMP)
-	@rm -rf $(TMP)
-	@ranlib $(NAME)
+	ar rc $(TMP) $(BIN)
+	libtool -static -o $(NAME) $(PRINTF_DIR)/libftprintf.a $(TMP)
+	rm -rf $(TMP)
+	ranlib $(NAME)
 
 $(PRINTF):
-	@make -C $(PRINTF_DIR)
+	make -C $(PRINTF_DIR)
 
 %.o: %.c $(HEADER)
-	@gcc -o $@ -c $< -I $(INCLUDES) $(FLAG)
+	gcc -o $@ -c $< -I $(INCLUDES) $(FLAG)
 
 clean: 
-	@/bin/rm -rf $(BIN)
-	@ make clean -C $(PRINTF_DIR)
+	/bin/rm -rf $(BIN)
+	 make clean -C $(PRINTF_DIR)
 
 fclean: clean
-	@make fclean -C $(PRINTF_DIR)
-	@/bin/rm -rf $(NAME)
+	make fclean -C $(PRINTF_DIR)
+	/bin/rm -rf $(NAME)
 
 re: fclean all

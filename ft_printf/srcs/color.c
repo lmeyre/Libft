@@ -116,13 +116,13 @@ static	int	basic_step(t_ptf *env, const char *format)
 	return (first_step(env, format));
 }
 
-void		check_color(t_ptf *env, const char *format)
+void		printf_check_color(t_ptf *env, const char *format)
 {
 	int verif;
 
-	reset_buf(env);
+	printf_reset_buf(env);
 	verif = basic_step(env, format);
 	env->index += verif;
 	verif == 0 ? ++(env->size) : 0;
-	verif == 0 ? ft_putchar_buff(env, format[env->index++]) : 0;
+	verif == 0 ? printf_ft_putchar_buff(env, format[env->index++]) : 0;
 }

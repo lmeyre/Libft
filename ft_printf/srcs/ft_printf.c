@@ -12,15 +12,15 @@
 
 #include "../includes/ft_printf.h"
 
-void		ft_putchar_buff(t_ptf *env, char c)
+void		printf_ft_putchar_buff(t_ptf *env, char c)
 {
 	if (env->index_buff < BUFF_SIZE - 1)
 		env->buff[env->index_buff++] = c;
 	if (env->index_buff + 1 == BUFF_SIZE)
-		reset_buf(env);
+		printf_reset_buf(env);
 }
 
-void		ft_putstr_buff(t_ptf *env, char *str)
+void		printf_ft_putstr_buff(t_ptf *env, char *str)
 {
 	int h;
 
@@ -32,7 +32,7 @@ void		ft_putstr_buff(t_ptf *env, char *str)
 		env->buff[env->index_buff++] = str[h];
 		++h;
 		if (env->index_buff + 1 == BUFF_SIZE)
-			reset_buf(env);
+			printf_reset_buf(env);
 	}
 }
 
@@ -47,16 +47,16 @@ static	int	ft_filler(const char *format, t_ptf *env, va_list *ap)
 	{
 		if (format[env->index] == '%')
 		{
-			if (launch_scan(env, ap) == -1)
+			if (printf_launch_scan(env, ap) == -1)
 				return (-1);
-			reset_value(env);
+			printf_reset_value(env);
 		}
 		else if (format[env->index] == '{')
-			check_color(env, format);
+			printf_check_color(env, format);
 		else
 		{
 			++(env->size);
-			ft_putchar_buff(env, format[env->index++]);
+			printf_ft_putchar_buff(env, format[env->index++]);
 		}
 	}
 	return (1);
@@ -69,7 +69,7 @@ int			ft_printf(const char *format, ...)
 	int		bool;
 
 	bool = 0;
-	if ((env = initialize_env()) == NULL)
+	if ((env = printf_initialize_env()) == NULL)
 		return (-1);
 	va_start(ap, format);
 	if (!(env->frmt = ft_strdup(format)))
@@ -84,14 +84,14 @@ int			ft_printf(const char *format, ...)
 	return (bool == -1 ? -1 : env->size);
 }
 
-int			launch_scan(t_ptf *env, va_list *ap)
+int			printf_launch_scan(t_ptf *env, va_list *ap)
 {
 	++env->index;
-	attrib_start(env);
-	field_width_start(env);
-	precision_start(env);
-	flag_start(env);
-	if (convertion_start(env, ap) == -1)
+	printf_attrib_start(env);
+	printf_field_width_start(env);
+	printf_precision_start(env);
+	printf_flag_start(env);
+	if (printf_convertion_start(env, ap) == -1)
 		return (-1);
 	return (1);
 }
