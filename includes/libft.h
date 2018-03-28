@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 18:28:36 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/03/28 18:39:47 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/03/28 23:34:31 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ void				ft_free_strtab(char ***tab);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 void				ft_rchar_tab(char **tab);
+void				ft_rint_tab(int **tab, int width, int lenght);
 char				*ft_strnew(size_t size);
 char				*ft_strnew_free(size_t size, char **str);
 

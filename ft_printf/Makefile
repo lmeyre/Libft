@@ -21,15 +21,15 @@ BIN = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(MAKE) $(BIN) $(HEADER)
-	ar rc $(NAME) $(BIN)
+	@ar rc $(NAME) $(BIN)
 
 %.o: %.c $(HEADER)
-		gcc -o $@ -c $< -I $(INCLUDESDIR) $(FLAG)
+		@gcc -o $@ -c $< -I $(INCLUDESDIR) $(FLAG)
 
 clean:
-		/bin/rm -rf $(BIN)
+		@/bin/rm -rf $(BIN)
 
 fclean: clean
-		/bin/rm -rf $(NAME)
+		@/bin/rm -rf $(NAME)
 
 re: fclean all
