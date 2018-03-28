@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-static	int	third_step(t_env *env, const char *format)
+static	int	third_step(t_ptf *env, const char *format)
 {
 	if ((ft_strcmp_n("bgblue}", &format[env->index + 1], 7)) == 0)
 	{
@@ -37,7 +37,7 @@ static	int	third_step(t_env *env, const char *format)
 	return (0);
 }
 
-static	int	second_step(t_env *env, const char *format)
+static	int	second_step(t_ptf *env, const char *format)
 {
 	if ((ft_strcmp_n("bgblack}", &format[env->index + 1], 8)) == 0)
 	{
@@ -62,7 +62,7 @@ static	int	second_step(t_env *env, const char *format)
 	return (third_step(env, format));
 }
 
-static	int	first_step(t_env *env, const char *format)
+static	int	first_step(t_ptf *env, const char *format)
 {
 	if ((ft_strcmp_n("blue}", &format[env->index + 1], 5)) == 0)
 	{
@@ -87,7 +87,7 @@ static	int	first_step(t_env *env, const char *format)
 	return (second_step(env, format));
 }
 
-static	int	basic_step(t_env *env, const char *format)
+static	int	basic_step(t_ptf *env, const char *format)
 {
 	(ft_strcmp_n("black}", &format[env->index + 1], 6) == 0) ?
 		ft_putstr("\x1B[30m") : 0;
@@ -116,7 +116,7 @@ static	int	basic_step(t_env *env, const char *format)
 	return (first_step(env, format));
 }
 
-void		check_color(t_env *env, const char *format)
+void		check_color(t_ptf *env, const char *format)
 {
 	int verif;
 

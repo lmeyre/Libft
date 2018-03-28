@@ -12,11 +12,11 @@
 
 #include "../includes/ft_printf.h"
 
-t_env		*initialize_env(void)
+t_ptf		*initialize_env(void)
 {
-	t_env *env;
+	t_ptf *env;
 
-	if (!(env = (t_env*)malloc(sizeof(t_env))))
+	if (!(env = (t_ptf*)malloc(sizeof(t_ptf))))
 		return (NULL);
 	env->frmt = NULL;
 	env->size = 0;
@@ -39,7 +39,7 @@ t_env		*initialize_env(void)
 	return (env);
 }
 
-void		reset_value(t_env *env)
+void		reset_value(t_ptf *env)
 {
 	env->dieze = 0;
 	env->zero = 0;
@@ -57,7 +57,7 @@ void		reset_value(t_env *env)
 	env->precision_on = 0;
 }
 
-void		init_conv_tab(void (*trigger[])(t_env*, va_list*, int))
+void		init_conv_tab(void (*trigger[])(t_ptf*, va_list*, int))
 {
 	trigger[0] = &d_conv;
 	trigger[1] = &s_conv;

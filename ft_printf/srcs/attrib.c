@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-void		handle_space(int *count, int neg, t_env *env)
+void		handle_space(int *count, int neg, t_ptf *env)
 {
 	if (neg == 0 && env->space == 1)
 	{
@@ -21,7 +21,7 @@ void		handle_space(int *count, int neg, t_env *env)
 	}
 }
 
-void		handle_pos(t_env *env, int number)
+void		handle_pos(t_ptf *env, int number)
 {
 	if (env->pos == 1 && number >= 0)
 		ft_putchar_buff(env, '+');

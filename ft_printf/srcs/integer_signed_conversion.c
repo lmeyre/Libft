@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-static	int			filler(t_env *env, long long x, int *bigger)
+static	int			filler(t_ptf *env, long long x, int *bigger)
 {
 	int fake;
 
@@ -26,7 +26,7 @@ static	int			filler(t_env *env, long long x, int *bigger)
 	return (fake);
 }
 
-static	void		write_conv(t_env *env, long long x, int bigger, char *str)
+static	void		write_conv(t_ptf *env, long long x, int bigger, char *str)
 {
 	int		size;
 	int		fake;
@@ -55,7 +55,7 @@ static	void		write_conv(t_env *env, long long x, int bigger, char *str)
 	env->neg == 1 ? handle_width_other(env, bigger) : 0;
 }
 
-static	long long	dconv_modif(t_env *env, long long x, va_list *ap)
+static	long long	dconv_modif(t_ptf *env, long long x, va_list *ap)
 {
 	if (env->frmt[env->index - 1] == 'D')
 		x = va_arg(*ap, signed long int);
@@ -82,7 +82,7 @@ static	long long	dconv_modif(t_env *env, long long x, va_list *ap)
 	return (x);
 }
 
-void				d_conv(t_env *env, va_list *ap, int count)
+void				d_conv(t_ptf *env, va_list *ap, int count)
 {
 	long long	x;
 	int			bigger;
@@ -106,7 +106,7 @@ void				d_conv(t_env *env, va_list *ap, int count)
 	env->size += bigger;
 }
 
-void				b_conv(t_env *env, va_list *ap, int count)
+void				b_conv(t_ptf *env, va_list *ap, int count)
 {
 	long long	x;
 	int			bigger;

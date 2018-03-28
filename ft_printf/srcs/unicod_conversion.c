@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-void		ac_conv(t_env *env, va_list *ap, int c)
+void		ac_conv(t_ptf *env, va_list *ap, int c)
 {
 	wchar_t wchar;
 
@@ -55,7 +55,7 @@ static int	get_all_oct(wchar_t *str)
 	return (oct);
 }
 
-void		handle_width_unicod(t_env *env, int size)
+void		handle_width_unicod(t_ptf *env, int size)
 {
 	while (env->width > size)
 	{
@@ -68,7 +68,7 @@ void		handle_width_unicod(t_env *env, int size)
 	}
 }
 
-static void	filler_null(int bigger, t_env *env)
+static void	filler_null(int bigger, t_ptf *env)
 {
 	char *ptr;
 
@@ -85,7 +85,7 @@ static void	filler_null(int bigger, t_env *env)
 	ft_strdel(&ptr);
 }
 
-void		as_conv(t_env *env, va_list *ap, int bigger)
+void		as_conv(t_ptf *env, va_list *ap, int bigger)
 {
 	wchar_t	*str;
 

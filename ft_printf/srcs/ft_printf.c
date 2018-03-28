@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-void		ft_putchar_buff(t_env *env, char c)
+void		ft_putchar_buff(t_ptf *env, char c)
 {
 	if (env->index_buff < BUFF_SIZE - 1)
 		env->buff[env->index_buff++] = c;
@@ -20,7 +20,7 @@ void		ft_putchar_buff(t_env *env, char c)
 		reset_buf(env);
 }
 
-void		ft_putstr_buff(t_env *env, char *str)
+void		ft_putstr_buff(t_ptf *env, char *str)
 {
 	int h;
 
@@ -36,7 +36,7 @@ void		ft_putstr_buff(t_env *env, char *str)
 	}
 }
 
-static	int	ft_filler(const char *format, t_env *env, va_list *ap)
+static	int	ft_filler(const char *format, t_ptf *env, va_list *ap)
 {
 	int i;
 	int index;
@@ -65,7 +65,7 @@ static	int	ft_filler(const char *format, t_env *env, va_list *ap)
 int			ft_printf(const char *format, ...)
 {
 	va_list	ap;
-	t_env	*env;
+	t_ptf	*env;
 	int		bool;
 
 	bool = 0;
@@ -84,7 +84,7 @@ int			ft_printf(const char *format, ...)
 	return (bool == -1 ? -1 : env->size);
 }
 
-int			launch_scan(t_env *env, va_list *ap)
+int			launch_scan(t_ptf *env, va_list *ap)
 {
 	++env->index;
 	attrib_start(env);

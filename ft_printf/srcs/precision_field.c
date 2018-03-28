@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-void		handle_width_other(t_env *env, int size)
+void		handle_width_other(t_ptf *env, int size)
 {
 	while (env->width > size)
 	{
@@ -25,7 +25,7 @@ void		handle_width_other(t_env *env, int size)
 	}
 }
 
-void		handle_precision_int(t_env *env, int size)
+void		handle_precision_int(t_ptf *env, int size)
 {
 	while (env->precision > size)
 	{
@@ -34,7 +34,7 @@ void		handle_precision_int(t_env *env, int size)
 	}
 }
 
-void		handle_precision_str(t_env *env, char *str)
+void		handle_precision_str(t_ptf *env, char *str)
 {
 	int i;
 
@@ -57,7 +57,7 @@ static	int	filler(wchar_t *wstr, int j)
 		return (-1);
 }
 
-void		handle_precision_wstr(t_env *env, wchar_t *wstr)
+void		handle_precision_wstr(t_ptf *env, wchar_t *wstr)
 {
 	int i;
 	int j;

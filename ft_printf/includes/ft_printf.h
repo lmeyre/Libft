@@ -17,7 +17,7 @@
 # define BUFF_SIZE 4096
 
 typedef	struct		s_ptf
-.gf,d njbkflsdgd{
+{
 	char			buff[BUFF_SIZE];
 	int				index;
 	int				index_buff;
@@ -39,7 +39,6 @@ typedef	struct		s_ptf
 	int				z_size;
 }					t_ptf;
 
-fsdfsdfgsdfgsd
 int					ft_printf(const char *format, ...);
 void				reset_buf(t_ptf *env);
 void				ft_putchar_buff(t_ptf *env, char c);

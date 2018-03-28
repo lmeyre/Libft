@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-void		percent_conv(t_env *env, va_list *ap, int usls)
+void		percent_conv(t_ptf *env, va_list *ap, int usls)
 {
 	(void)usls;
 	(void)ap;
@@ -23,7 +23,7 @@ void		percent_conv(t_env *env, va_list *ap, int usls)
 	++(env->size);
 }
 
-void		c_conv(t_env *env, va_list *ap, int c)
+void		c_conv(t_ptf *env, va_list *ap, int c)
 {
 	if (env->l_long == 1)
 	{
@@ -40,7 +40,7 @@ void		c_conv(t_env *env, va_list *ap, int c)
 	++(env->size);
 }
 
-void		s_conv(t_env *env, va_list *ap, int null)
+void		s_conv(t_ptf *env, va_list *ap, int null)
 {
 	char	*str;
 	int		bigger;
@@ -69,7 +69,7 @@ void		s_conv(t_env *env, va_list *ap, int null)
 	null == 1 ? ft_strdel(&str) : 0;
 }
 
-void		p_conv(t_env *env, va_list *ap, int bigger)
+void		p_conv(t_ptf *env, va_list *ap, int bigger)
 {
 	char		*ptr;
 	uintptr_t	x;
@@ -96,7 +96,7 @@ void		p_conv(t_env *env, va_list *ap, int bigger)
 	ft_strdel(&ptr);
 }
 
-void		reset_buf(t_env *env)
+void		reset_buf(t_ptf *env)
 {
 	env->buff[env->index_buff] = '\0';
 	ft_putstr(env->buff);

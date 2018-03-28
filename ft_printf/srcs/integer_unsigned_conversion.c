@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-static	long long	baseconv_modif(t_env *env,
+static	long long	baseconv_modif(t_ptf *env,
 		unsigned long long i, va_list *ap)
 {
 	if (env->frmt[env->index] == 'U' || env->frmt[env->index] == 'O')
@@ -41,7 +41,7 @@ static	long long	baseconv_modif(t_env *env,
 }
 
 static char			*filler(char c, unsigned long long i,
-					t_env *env, char **bonus)
+					t_ptf *env, char **bonus)
 {
 	char				*ptr;
 
@@ -70,7 +70,7 @@ static char			*filler(char c, unsigned long long i,
 	return (ptr);
 }
 
-static	void		exception(char *ptr, int fake, t_env *env)
+static	void		exception(char *ptr, int fake, t_ptf *env)
 {
 	if (fake == 0)
 		ft_putstr_buff(env, ptr);
@@ -79,7 +79,7 @@ static	void		exception(char *ptr, int fake, t_env *env)
 		ft_putchar_buff(env, '0');
 }
 
-static	void		write_base(t_env *env, char *ptr, char *bonus)
+static	void		write_base(t_ptf *env, char *ptr, char *bonus)
 {
 	int fake;
 	int big;
@@ -107,7 +107,7 @@ static	void		write_base(t_env *env, char *ptr, char *bonus)
 	(env->size) += big;
 }
 
-void				base_conv(t_env *env, va_list *ap, int big)
+void				base_conv(t_ptf *env, va_list *ap, int big)
 {
 	unsigned long long	i;
 	char				*ptr;
