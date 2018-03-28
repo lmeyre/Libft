@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 18:28:36 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/03/22 22:00:06 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/03/28 18:39:47 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <stdarg.h>
 # include "limits.h"
 # include "./get_next_line.h"
+# include "../ft_printf/includes/ft_printf.h"
 
 typedef struct		s_list
 {
@@ -131,6 +132,7 @@ void				ft_swap(int *a, int *b);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 
+void				**ft_2d_array(int width, int lenght, int size_type);
 void				ft_bzero(void *s, size_t n);
 char				**ft_create_chartab(int size, int sizelittle);
 void				ft_free_strtab(char ***tab);
