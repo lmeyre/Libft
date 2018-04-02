@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 18:28:36 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/03/28 23:34:31 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/03/31 17:42:48 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strjoin_free(char *s1, char *s2, char **out);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 int					ft_strlen(const char *s);
+int					ft_strlen_c(char *str, char c);
 int					ft_strlen_to(const char *s, char c);
 char				*ft_strmap(char const *s, char(*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
@@ -112,6 +113,7 @@ void				ft_swap_str(char *a, char *b);
 char				*ft_toupper_str(char *str);
 char				*ft_strtrim(char const *s);
 
+int					ft_abs(int i);
 int					ft_atoi(const char *str);
 void				ft_display_file(int argc, char **argv);
 int					ft_int_length(long long int i);
@@ -131,6 +133,7 @@ int					ft_sqrt(int nb);
 void				ft_swap(int *a, int *b);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+int					ft_word_nbr(const char *s, char c);
 
 void				**ft_2d_array(int width, int lenght, int size_type);
 void				ft_bzero(void *s, size_t n);
@@ -139,7 +142,7 @@ void				ft_free_strtab(char ***tab);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 void				ft_rchar_tab(char **tab);
-void				ft_rint_tab(int **tab, int width, int lenght);
+void				ft_rint_tab(int **tab, int nbr_of_tab, int lenght);
 char				*ft_strnew(size_t size);
 char				*ft_strnew_free(size_t size, char **str);
 

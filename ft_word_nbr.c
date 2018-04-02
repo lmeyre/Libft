@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rint_tab.c                                      :+:      :+:    :+:   */
+/*   ft_word_nbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/28 23:27:42 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/03/30 20:50:01 by lmeyre           ###   ########.fr       */
+/*   Created: 2018/03/31 17:34:28 by lmeyre            #+#    #+#             */
+/*   Updated: 2018/03/31 18:46:35 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void		ft_rint_tab(int **tab, int nbr_of_tab, int lenght)
+int			ft_word_nbr(const char *s, char c)
 {
 	int i;
-	int j;
+	int count;
+	int boool;
 
-	if (!tab || lenght == 0 || nbr_of_tab == 0)
-		return ;
+	boool = 1;
+	count = 0;
 	i = 0;
-	j = 0;
-	while (i < nbr_of_tab)
+	while (s[i] == c)
+		i++;
+	while (s[i])
 	{
-		while (j < lenght)
+		if (s[i] != c)
 		{
-			ft_putnbr(tab[i][j]);
-			++j;
-			if (j < lenght)
-				ft_putstr("|");
+			i++;
+			boool == 1 ? count++ : boool;
+			boool == 1 ? boool-- : boool;
 		}
-		ft_putchar('\n');
-		j = 0;
-		++i;
+		else if (s[i] == c)
+		{
+			boool = 1;
+			while (s[i] == c)
+				i++;
+		}
 	}
+	return (count);
 }
