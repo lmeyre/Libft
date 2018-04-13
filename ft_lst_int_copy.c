@@ -20,13 +20,15 @@ t_list		*ft_lst_int_copy(t_list *lst)
 
 	if (!lst)
 		return (NULL);
-	copy_head = ft_lst_new(sizeof(lst->content));
+	if (!(copy_head = ft_lst_new(sizeof(lst->content))))
+		return (NULL);
 	*((int*)(copy_head->content)) = *((int*)(lst->content));
 	tmp_copy = copy_head;
 	tmp_main = lst->next;
 	while (tmp_main)
 	{
-		tmp_copy->next = ft_lst_new(sizeof(tmp_main->content));
+		if (!(tmp_copy->next = ft_lst_new(sizeof(tmp_main->content))))
+			return (NULL);
 		tmp_copy->next->prev = tmp_copy;
 		tmp_copy = tmp_copy->next;
 		*(int*)tmp_copy->content = *(int*)tmp_main->content;

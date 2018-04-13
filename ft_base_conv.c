@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 23:42:26 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/03/12 22:44:00 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/04/03 20:00:16 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char		*ft_base_conv(char *str, int base_src, int base_dest)
 		--i;
 		index++;
 	}
-	ptr = ft_itoa_base(nbr, base_dest);
+	if (!(ptr = ft_itoa_base(nbr, base_dest)))
+		return (NULL);
 	return (ptr);
 }

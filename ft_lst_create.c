@@ -18,12 +18,14 @@ t_list	*ft_create_lst(int size, int content_size)
 	t_list	*curr;
 	t_list	*prev;
 
-	start = ft_lst_new(content_size);
+	if (!(start = ft_lst_new(content_size)))
+		return (NULL);
 	curr = start;
 	prev = NULL;
 	while (size > 1)
 	{
-		curr->next = ft_lst_new(content_size);
+		if (!(curr->next = ft_lst_new(content_size)))
+			return (NULL);
 		curr->prev = prev;
 		prev = curr;
 		curr = curr->next;

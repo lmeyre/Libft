@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 18:28:36 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/03/31 17:42:48 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/04/03 19:58:25 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ char				*ft_itoa_base_unsigned(unsigned long long n, int base);
 int					ft_lst_add(t_list **alst, t_list *mew);
 int					ft_lst_add_end(t_list **lst, t_list *mew);
 t_list				*ft_lst_int_copy(t_list *lst);
-t_list				*ft_create_lst(int size, int content_size);
 void				ft_lst_del_all(t_list **lst);
 t_list				*ft_lst_del_last(t_list **lst);
 t_list				*ft_lst_del_one(t_list **lst, int position);
@@ -115,7 +114,6 @@ char				*ft_strtrim(char const *s);
 
 int					ft_abs(int i);
 int					ft_atoi(const char *str);
-void				ft_display_file(int argc, char **argv);
 int					ft_int_length(long long int i);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);

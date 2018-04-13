@@ -24,7 +24,8 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		ptr->content = ft_memalloc(content_size);
+		if (!(ptr->content = ft_memalloc(content_size)))
+			return (NULL);
 		ptr->content = ft_memmove(ptr->content, content, content_size);
 	}
 	ptr->next = NULL;
