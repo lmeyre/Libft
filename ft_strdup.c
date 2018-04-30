@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 13:25:57 by lmeyre            #+#    #+#             */
-/*   Updated: 2017/11/22 01:07:51 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/04/30 16:11:16 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ char	*ft_strdup(const char *s1)
 	if (!(s2 = (char*)ft_memalloc(sizeof(char) * ((unsigned long)(1 + i)))))
 		return (0);
 	s2[i] = '\0';
+	--i;
 	while (i >= 0)
 	{
 		s2[i] = s1[i];

@@ -18,7 +18,7 @@ t_ptf		*printf_initialize_env(void)
 
 	if (!(env = (t_ptf*)malloc(sizeof(t_ptf))))
 		return (NULL);
-	env->frmt = NULL;
+	//env->frmt = NULL;
 	env->size = 0;
 	env->index = 0;
 	env->index_buff = 0;

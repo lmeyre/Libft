@@ -24,7 +24,7 @@ $(NAME) : $(MAKE) $(BIN) $(HEADER)
 	@ar rc $(NAME) $(BIN)
 
 %.o: %.c $(HEADER)
-		@gcc -o $@ -c $< -I $(INCLUDESDIR) $(FLAG)
+		@gcc -o $@ -c $< -I $(INCLUDESDIR)
 
 clean:
 		@/bin/rm -rf $(BIN)
@@ -32,4 +32,4 @@ clean:
 fclean: clean
 		@/bin/rm -rf $(NAME)
 
-re: fclean all
+e: fclean all

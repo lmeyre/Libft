@@ -18,11 +18,10 @@
 
 typedef	struct		s_ptf
 {
-	char			buff[BUFF_SIZE];
+	char			*frmt;
 	int				index;
 	int				index_buff;
 	int				size;
-	char			*frmt;
 	int				dieze;
 	int				zero;
 	int				neg;
@@ -37,6 +36,8 @@ typedef	struct		s_ptf
 	int				ll_longlong;
 	int				j_intmax;
 	int				z_size;
+	char			buff[BUFF_SIZE];
+	char			padding[4];
 }					t_ptf;
 
 int					ft_printf(const char *format, ...);
