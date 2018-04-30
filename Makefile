@@ -6,7 +6,7 @@
 #    By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 14:34:52 by lmeyre            #+#    #+#              #
-#    Updated: 2018/03/31 17:42:26 by lmeyre           ###   ########.fr        #
+#    Updated: 2018/04/30 09:12:58 by lmeyre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,12 @@ INCLUDES = includes
 
 BIN = $(SRC:.c=.o)
 
+BIN_DIR = bin
+
+BIN_BIN = $(addprefix $(BIN_DIR)/, $(BIN))\
+
+.PHONY: all clean fclean re visi
+
 all: $(NAME)
 
 $(NAME): $(PRINTF) $(BIN) $(HEADER)
@@ -35,16 +41,24 @@ $(NAME): $(PRINTF) $(BIN) $(HEADER)
 	@libtool -static -o $(NAME) $(PRINTF_DIR)/libftprintf.a $(TMP)
 	@rm -rf $(TMP)
 	@ranlib $(NAME)
+	@mv $(BIN) $(BIN_DIR)
 
 $(PRINTF):
 	@make -C $(PRINTF_DIR)
 
+visi: $(PRINTF) $(BIN) $(HEADER)
+	ar rc $(TMP) $(BIN)
+	libtool -static -o $(NAME) $(PRINTF_DIR)/libftprintf.a $(TMP)
+	rm -rf $(TMP)
+	ranlib $(NAME)
+	mv $(BIN) $(BIN_DIR)
+
 %.o: %.c $(HEADER)
 	@gcc -o $@ -c $< -I $(INCLUDES) $(FLAG)
 
-clean: 
-	@/bin/rm -rf $(BIN)
-	@ make clean -C $(PRINTF_DIR)
+clean:
+	@rm -rf $(BIN_BIN)
+	@make clean -C $(PRINTF_DIR)
 
 fclean: clean
 	@make fclean -C $(PRINTF_DIR)
