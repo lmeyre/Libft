@@ -30,7 +30,7 @@ static int		ft_filler(unsigned long long i, int j, int base)
 {
 	while (i >= 1)
 	{
-		i /= base;
+		i /= (unsigned long long)base;
 		j++;
 	}
 	return (j);
@@ -45,16 +45,16 @@ char			*ft_itoa_base_unsigned(unsigned long long n, int base)
 	ft_strcpy(converter, "0123456789abcdef");
 	if (base == 0)
 		return (NULL);
-	if ((ptr = exception(n)) != NULL)
+	if ((ptr = exception((long long)n)) != NULL)
 		return (ptr);
 	j = ft_filler(n, 0, base);
-	if (!(ptr = ft_strnew(j)))
+	if (!(ptr = ft_strnew((size_t)j)))
 		return (NULL);
 	j--;
 	while (n >= 1)
 	{
-		ptr[j--] = converter[(n % base)];
-		n /= base;
+		ptr[j--] = converter[(n % (unsigned long long)base)];
+		n /= (unsigned long long)base;
 	}
 	return (ptr);
 }

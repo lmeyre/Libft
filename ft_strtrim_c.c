@@ -34,6 +34,6 @@ char	*ft_strtrim_c(char const *s, char c)
 			end = k;
 		k++;
 	}
-	ptr = ft_strsub(s, start, end - start + 1);
+	ptr = ft_strsub(s, (unsigned int)start, (size_t)(end - start + 1));
 	return (ptr);
 }

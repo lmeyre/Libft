@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 16:30:41 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/04/02 14:38:40 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/04/30 10:03:58 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ static t_fd		*mng(t_fd **strct, char **line, int *bool, int *boolbis)
 		if (i == 0 && (*strct)->tmp[0] != '\n')
 		{
 			*line = ft_strdup_free((*strct)->tmp, line);
-			((*strct)->tmp) ? ft_strdel(&((*strct)->tmp)) : 0;
+			ft_strdel(&(*strct)->tmp);
 			*boolbis = 1;
 		}
 		else
 		{
-			*line = ft_strsub_free((*strct)->tmp, 0, i, line);
+			*line = ft_strsub_free((*strct)->tmp, 0, (size_t)i, line);
 			if ((i + 2) <= ft_strlen((*strct)->tmp))
 				(*strct)->tmp =
 				ft_strdup_free((*strct)->tmp + i + 1, &((*strct)->tmp));
@@ -64,7 +64,7 @@ static t_list	*list_check(int fd, t_list *lst,
 	return (lst);
 }
 
-int				job(char *buf, t_list *lst, int *bool, char **line)
+static int		job(char *buf, t_list *lst, int *bool, char **line)
 {
 	int		i;
 	char	*omg;
@@ -75,10 +75,10 @@ int				job(char *buf, t_list *lst, int *bool, char **line)
 	if (i != 0 || buf[0] == '\n')
 	{
 		if ((*line)[0] == '\0')
-			*line = ft_strsub_free(buf, 0, i, line);
+			*line = ft_strsub_free(buf, 0, (size_t)i, line);
 		else
 		{
-			omg = ft_strsub(buf, 0, i);
+			omg = ft_strsub(buf, 0, (size_t)i);
 			*line = ft_strjoin_free(*line, omg, line);
 			ft_strdel(&omg);
 		}
@@ -91,12 +91,13 @@ int				job(char *buf, t_list *lst, int *bool, char **line)
 	return (0);
 }
 
-int				ft_filler(t_list **lst, t_list **lst_tmp,
+static int		ft_filler(t_list **lst, t_list **lst_tmp,
 				t_filler **ltl, char **line)
 {
 	int unused;
 
-	(*ltl)->ret = read(((t_fd*)((*lst)->content))->fd, (*ltl)->buf, BUFF_SIZE);
+	(*ltl)->ret = (int)read(((t_fd*)((*lst)->content))->fd,
+					(*ltl)->buf, BUFF_SIZE);
 	if ((*ltl)->ret == -1 || !((*ltl)->ret))
 	{
 		(*ltl)->boolbis == 1 ? (*ltl)->bool = 1 : (*ltl)->bool;

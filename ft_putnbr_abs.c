@@ -27,5 +27,5 @@ void	ft_putnbr_abs(long long int n)
 		ft_putnbr_abs(n % 10);
 	}
 	else
-		ft_putchar(n + '0');
+		ft_putchar((char)n + '0');
 }

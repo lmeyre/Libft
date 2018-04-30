@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 16:58:23 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/04/02 14:39:04 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/04/30 09:34:32 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@ void	**ft_2d_array(int width, int height, int size_type)
 	if (width == 0 || height == 0 || size_type <= 0)
 		return (NULL);
 	count = 0;
-	if (!(array = (void**)malloc(sizeof(void*) * (width + 1))))
+	if (!(array = (void**)malloc((sizeof(void*) *
+					((unsigned long)(width + 1))))))
 		return (NULL);
 	while (count <= width)
 	{
-		if (!(array[count] = (void*)malloc(size_type * (height + 1))))
+		if (!(array[count] = (void*)malloc((unsigned long)size_type *
+								((unsigned long)(height + 1)))))
 			return (NULL);
-		ft_bzero(array[count], (size_type * (height + 1)));
+		ft_bzero(array[count], ((size_t)size_type *
+								((unsigned long)(height + 1))));
 		count++;
 	}
 	array[count] = NULL;

@@ -26,7 +26,7 @@ static char			**ft_tab(char **tab, char const *s, int k, int c)
 			start = i;
 			while (s[i] != c && s[i] != '\0')
 				i++;
-			tab[k] = ft_strsub(s, start, i - start);
+			tab[k] = ft_strsub(s, (unsigned int)start, (size_t)(i - start));
 			k++;
 		}
 	}
@@ -40,7 +40,8 @@ char				**ft_strsplit(char const *s, char c)
 
 	if (!(s))
 		return (0);
-	if (!(tab = (char**)ft_memalloc(sizeof(char*) * (ft_word_nbr(s, c) + 1))))
+	if (!(tab = (char**)ft_memalloc(sizeof(char*) *
+				(unsigned long)(ft_word_nbr(s, c) + 1))))
 		return (0);
 	tab = ft_tab(tab, s, 0, c);
 	return (tab);

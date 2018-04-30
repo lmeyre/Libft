@@ -32,6 +32,6 @@ void	ft_putnbr(int n)
 	}
 	else
 	{
-		ft_putchar(n + '0');
+		ft_putchar((char)n + '0');
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 22:53:54 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/03/03 18:20:49 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/04/30 10:34:30 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static	void	filler(int time, char *ref, int i)
 	j = 0;
 	while (j++ < time)
 	{
-		tmpchar = ft_strsub(ref, val, 8);
+		tmpchar = ft_strsub(ref, (unsigned int)val, 8);
 		hold_oct = ft_base_conv(tmpchar, 2, 10);
 		i = ft_atoi(hold_oct);
 		write(1, &i, 1);
@@ -101,7 +101,7 @@ void			ft_putwchar(wchar_t wchar)
 
 	bin = ft_itoa_base(wchar, 2);
 	if (wchar <= 0x7f)
-		ft_putchar(wchar);
+		ft_putchar((char)wchar);
 	else if (wchar <= 0x7ff)
 		two_oct(bin, 0, 0);
 	else if (wchar <= 0xffff)

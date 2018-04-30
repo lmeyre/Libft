@@ -26,13 +26,14 @@ static char		*exception(long long n)
 	return (NULL);
 }
 
-static int		ft_filler(unsigned long long i, int j, int base)
+static int		ft_filler(unsigned long long i, int j, int base, int neg)
 {
 	while (i >= 1)
 	{
-		i /= base;
+		i /= (unsigned long long)base;
 		j++;
 	}
+	neg == -1 ? j++ : j;
 	return (j);
 }
 
@@ -41,25 +42,25 @@ char			*ft_itoa_base(long long n, int base)
 	int					j;
 	char				*ptr;
 	int					neg;
-	char				converter[17];
+	char				*converter;
 	unsigned long long	reverse;
 
-	ft_strcpy(converter, "0123456789abcdef");
+	converter = "0123456789abcdef";
 	if (base == 0)
 		return (NULL);
 	if ((ptr = exception(n)) != NULL)
 		return (ptr);
 	neg = n < 0 ? -1 : 0;
-	reverse = (neg == -1 ? n * -1 : n);
-	j = ft_filler(reverse, 0, base);
-	neg == -1 ? j++ : j;
-	if (!(ptr = ft_strnew(j)))
+	reverse = (neg == -1 ? (unsigned long long)(n * -1)
+	: (unsigned long long)n);
+	j = ft_filler(reverse, 0, base, neg);
+	if (!(ptr = ft_strnew((size_t)j)))
 		return (NULL);
 	j--;
 	while (reverse >= 1)
 	{
-		ptr[j--] = converter[(reverse % base)];
-		reverse /= base;
+		ptr[j--] = converter[(reverse % (unsigned long long)base)];
+		reverse /= (unsigned long long)base;
 	}
 	neg == -1 ? ptr[j] = '-' : neg;
 	return (ptr);

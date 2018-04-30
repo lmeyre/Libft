@@ -25,15 +25,15 @@ void	ft_putlong(long long int n)
 	else if (n < 0)
 	{
 		ft_putchar('-');
-		nbr = n * -1;
+		nbr = (unsigned long long)(n * -1);
 	}
 	else
-		nbr = n;
+		nbr = (unsigned long long)n;
 	if (nbr > 9)
 	{
 		ft_putlong(nbr / 10);
 		ft_putlong(nbr % 10);
 	}
 	else
-		ft_putchar(nbr + '0');
+		ft_putchar((char)nbr + '0');
 }

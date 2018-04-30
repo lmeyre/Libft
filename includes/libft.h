@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 18:28:36 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/04/03 19:58:25 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/04/30 10:28:42 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,15 @@ char				*ft_itoa(int n);
 char				*ft_itoa_base(long long n, int base);
 char				*ft_itoa_base_unsigned(unsigned long long n, int base);
 
+t_list				*ft_create_lst(int size, int content_size);
 int					ft_lst_add(t_list **alst, t_list *mew);
 int					ft_lst_add_end(t_list **lst, t_list *mew);
-t_list				*ft_lst_int_copy(t_list *lst);
+void				ft_lst_cnttdel(void **content);
 void				ft_lst_del_all(t_list **lst);
 t_list				*ft_lst_del_last(t_list **lst);
 t_list				*ft_lst_del_one(t_list **lst, int position);
 t_list				*ft_lst_getend(t_list *lst);
+t_list				*ft_lst_int_copy(t_list *lst);
 t_list				*ft_lsti_map(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lst_last(t_list *lst);
@@ -61,53 +63,51 @@ void				ft_putnbr(int n);
 void				ft_putnbrn(int n);
 void				ft_putnbr_abs(long long int n);
 void				ft_putnbr_fd(int n, int fd);
-void				ft_putstr(char const *s);
-void				ft_putstr_fd(char const *s, int fd);
+void				ft_putstr(const char *s);
+void				ft_putstr_fd(const char *s, int fd);
 void				ft_putwchar(wchar_t wchar);
 void				ft_putwstr(wchar_t *wstr);
 
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
-void				*ft_memchr(const void *s, int c, size_t n);
+void				*ft_memchr(void *s, int c, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
 char				*ft_strcat(char *s1, const char *s2);
-char				*ft_strchr(const char *s, int c);
+char				*ft_strchr(char *s, int c);
 void				ft_strclr(char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strcmp_c(const char *s1, const char *s2, char c);
 int					ft_strcmp_n(const char *s1, const char *s2, int size);
 char				*ft_strcpy(char *dest, const char *src);
-int					ft_strequ(char const *s1, char const *s2);
+int					ft_strequ(const char *s1, const char *s2);
 void				ft_strdel(char **as);
 void				ft_strdel_two(char **as, char **asbis);
 char				*ft_strdup(const char *s1);
 char				*ft_strdup_free(const char *s1, char **out);
-void				ft_striter(char *s, void (*f)(char *));
-void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strjoin_free(char *s1, char *s2, char **out);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 int					ft_strlen(const char *s);
 int					ft_strlen_c(char *str, char c);
 int					ft_strlen_to(const char *s, char c);
-char				*ft_strmap(char const *s, char(*f)(char));
-char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strncat(char *s1, const char *s2, size_t n);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strncpy(char *dest, const char *src, size_t len);
-int					ft_strnequ(char const *s1, char const *s2, size_t n);
-char				*ft_strnstr(const char *haystack,
+int					ft_strnequ(const char *s1, const char *s2, size_t n);
+char				*ft_strnstr(char *haystack,
 					const char*needle, size_t len);
-char				*ft_strrchr(const char *s, int c);
+char				*ft_strrchr(char *s, int c);
 char				*ft_str_replace(char *str, char old, char mew);
 int					ft_strsearch(char *str, char c);
-char				**ft_strsplit(char const *s, char c);
-char				*ft_strstr(const char *haystack, const char *needle);
-char				*ft_strsub(char const *s, unsigned int start, size_t len);
-char				*ft_strsub_free(char const *s, unsigned int start,
+char				**ft_strsplit(const char *s, char c);
+char				*ft_strstr(char *haystack, const char *needle);
+int					ft_strstr_int(const char *haystack, const char *needle);
+char				*ft_strsub(const char *s, unsigned int start, size_t len);
+char				*ft_strsub_free(const char *s, unsigned int start,
 					size_t len, char **out);
+char				*ft_strtrim_c(char const *s, char c);
 void				ft_swap_str(char *a, char *b);
 char				*ft_toupper_str(char *str);
 char				*ft_strtrim(char const *s);
@@ -124,6 +124,7 @@ void				ft_is_negative(int n);
 int					ft_isprint(int c);
 void				ft_print_params(int argc, char **argv);
 long long			ft_power(long long n, int power);
+int					ft_nbr_of_words(const char *s, char c);
 int					*ft_range(int min, int max);
 int					ft_recursive_factorial(int nb);
 void				ft_sort_params(int argc, char **argv);

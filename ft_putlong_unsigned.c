@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 23:56:04 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/01/24 23:56:07 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/04/30 10:35:29 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void	ft_putlong_unsigned(unsigned long long n)
 		ft_putlong_unsigned(n % 10);
 	}
 	else
-		ft_putchar(n + '0');
+		ft_putchar((char)n + '0');
 }

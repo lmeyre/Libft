@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 16:08:32 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/02/22 20:29:06 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/04/30 10:21:54 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,21 @@
 
 typedef struct	s_fd
 {
-	char		*tmp;
-	int			fd;
 	struct s_fd	*next;
+	char		*tmp;
+	char		padding[4];
+	int			fd;
 }				t_fd;
 
 typedef struct	s_filler
 {
 	int			ret;
-	char		*buf;
 	int			bool;
 	int			boolbis;
 	int			lll;
+	char		*buf;
 }				t_filler;
 
 int				get_next_line(int fd, char **line);
+
 #endif

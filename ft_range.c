@@ -22,9 +22,9 @@ int		*ft_range(int min, int max)
 	if (min >= max)
 		return (NULL);
 	size = max - min;
-	if (!(array = (int*)malloc(sizeof(int) * (size))))
+	if (!(array = (int*)malloc(sizeof(int) * ((unsigned long)size))))
 		return (0);
-	ft_bzero(array, sizeof(int) * (size));
+	ft_bzero(array, sizeof(int) * ((unsigned long)size));
 	while (i < size)
 	{
 		array[i] = min;

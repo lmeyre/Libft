@@ -14,7 +14,7 @@
 
 void	ft_putstr(char const *s)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
 	if (!(s))

@@ -61,7 +61,7 @@ char			*ft_itoa(int n)
 	j = 0;
 	j = ft_filler(i);
 	neg == -1 ? j++ : j;
-	if (!(ptr = ft_strnew(j)))
+	if (!(ptr = ft_strnew((size_t)j)))
 		return (NULL);
 	i = 0;
 	j--;

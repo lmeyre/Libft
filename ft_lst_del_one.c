@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/03 18:22:22 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/03/03 19:23:36 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/04/30 10:29:27 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_list		*ft_lst_del_one(t_list **lst, int position)
 		over = (*lst)->prev;
 	else if ((*lst)->next)
 		over = (*lst)->next;
-	((*lst)->content) ? free((*lst)->content) : 0;
+	ft_lst_cnttdel(&(*lst)->content);
 	free(*lst);
 	*lst = NULL;
 	if (over != NULL)

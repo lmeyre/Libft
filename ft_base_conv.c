@@ -6,11 +6,17 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 23:42:26 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/04/03 20:00:16 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/04/30 09:39:33 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
+
+static void	sad_filler(int *i, int *index)
+{
+	*i -= 1;
+	*index += 1;
+}
 
 char		*ft_base_conv(char *str, int base_src, int base_dest)
 {
@@ -34,8 +40,7 @@ char		*ft_base_conv(char *str, int base_src, int base_dest)
 		str[index] == 'F' ? tmp = 15 : 0;
 		tmp == 0 ? tmp = str[index] - '0' : 0;
 		nbr += tmp * ft_power(base_src, i - 1);
-		--i;
-		index++;
+		sad_filler(&i, &index);
 	}
 	if (!(ptr = ft_itoa_base(nbr, base_dest)))
 		return (NULL);
