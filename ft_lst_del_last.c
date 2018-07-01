@@ -6,18 +6,18 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/03 18:27:44 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/03/03 18:29:04 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/06/03 19:26:13 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-t_list		*ft_lst_del_last(t_list **lst)
+void		ft_lst_del_last(t_list **lst)
 {
 	t_list	*start;
 
 	if (!lst || !*lst)
-		return (NULL);
+		return ;
 	start = *lst;
 	while ((*lst)->next)
 		*lst = (*lst)->next;
@@ -27,5 +27,5 @@ t_list		*ft_lst_del_last(t_list **lst)
 	(*lst)->content = NULL;
 	free(*lst);
 	*lst = NULL;
-	return (start);
+	*lst = start;
 }

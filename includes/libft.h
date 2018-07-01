@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 18:28:36 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/04/30 10:28:42 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/05/31 20:29:09 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ char				*ft_itoa_base_unsigned(unsigned long long n, int base);
 t_list				*ft_create_lst(int size, int content_size);
 int					ft_lst_add(t_list **alst, t_list *mew);
 int					ft_lst_add_end(t_list **lst, t_list *mew);
+int					ft_lst_advance(t_list **head, int advance);
 void				ft_lst_cnttdel(void **content);
 void				ft_lst_del_all(t_list **lst);
-t_list				*ft_lst_del_last(t_list **lst);
-t_list				*ft_lst_del_one(t_list **lst, int position);
+void				ft_lst_del_last(t_list **lst);
+void				ft_lst_del_one(t_list **lst, int position);
 t_list				*ft_lst_getend(t_list *lst);
 t_list				*ft_lst_int_copy(t_list *lst);
 t_list				*ft_lsti_map(t_list *lst, t_list *(*f)(t_list *elem));
@@ -50,8 +51,10 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lst_last(t_list *lst);
 t_list				*ft_lst_new(size_t content_size);
 t_list				*ft_lst_push_params(int argc, char **argv);
+void				ft_lst_reset(t_list **head);
 t_list				*ft_lst_reverse(t_list *lst);
 int					ft_lst_size(t_list *lst);
+int					ft_lst_stepback(t_list **head, int stepback);
 
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
@@ -68,6 +71,7 @@ void				ft_putstr_fd(const char *s, int fd);
 void				ft_putwchar(wchar_t wchar);
 void				ft_putwstr(wchar_t *wstr);
 
+void				ft_fill_str_c(char *str, char c);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
@@ -86,6 +90,7 @@ void				ft_strdel(char **as);
 void				ft_strdel_two(char **as, char **asbis);
 char				*ft_strdup(const char *s1);
 char				*ft_strdup_free(const char *s1, char **out);
+int					ft_strhexa_int(char *str);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strjoin_free(char *s1, char *s2, char **out);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
@@ -111,17 +116,21 @@ char				*ft_strtrim_c(char const *s, char c);
 void				ft_swap_str(char *a, char *b);
 char				*ft_toupper_str(char *str);
 char				*ft_strtrim(char const *s);
+unsigned char		*ft_unsigned_strdup(char *s1);
 
 int					ft_abs(int i);
 int					ft_atoi(const char *str);
+unsigned long long	ft_atoi_unsignedlong(const char *str);
 int					ft_int_length(long long int i);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_is_integer(char *str);
-void				ft_is_negative(int n);
+int					ft_is_negative(int n);
+int					ft_is_number(char *str);
 int					ft_isprint(int c);
+int					ft_is_whitespace(char x);
 void				ft_print_params(int argc, char **argv);
 long long			ft_power(long long n, int power);
 int					ft_nbr_of_words(const char *s, char c);

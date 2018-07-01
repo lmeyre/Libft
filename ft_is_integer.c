@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/03 18:17:21 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/03/03 18:18:42 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/05/31 16:08:42 by ndelest          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int				ft_is_integer(char *str)
 {
 	int i;
 
+	if (ft_is_number(str) == 0)
+		return (0);
 	i = ft_strlen(str);
 	str[0] == '-' ? --i : 0;
 	if (i > 10)

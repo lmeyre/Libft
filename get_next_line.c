@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 16:30:41 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/04/30 10:03:58 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/07/01 18:02:55 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static t_fd		*mng(t_fd **strct, char **line, int *bool, int *boolbis)
 		{
 			*line = ft_strsub_free((*strct)->tmp, 0, (size_t)i, line);
 			if ((i + 2) <= ft_strlen((*strct)->tmp))
-				(*strct)->tmp =
-				ft_strdup_free((*strct)->tmp + i + 1, &((*strct)->tmp));
+				(*strct)->tmp = ft_strdup_free((*strct)->tmp
+				+ i + 1, &((*strct)->tmp));
 			else
 				ft_strdel(&((*strct)->tmp));
 			*bool = 1;
