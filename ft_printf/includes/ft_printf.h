@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 01:55:08 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/05/25 16:29:28 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/07/05 21:20:18 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 # include "../../includes/libft.h"
+# include "stdarg.h"
 # define BUFF_SIZE 4096
 
 typedef	struct		s_ptf
