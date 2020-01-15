@@ -2,8 +2,6 @@ FLAG = -Wall -Werror -Wextra
 
 NAME = libftprintf.a
 
-TMP = temp.a
-
 MAKE = Makefile
 
 INCLUDESDIR = includes
@@ -24,12 +22,12 @@ $(NAME) : $(MAKE) $(BIN) $(HEADER)
 	@ar rc $(NAME) $(BIN)
 
 %.o: %.c $(HEADER)
-		@gcc -o $@ -c $< -I $(INCLUDESDIR)
+	@gcc -o $@ -c $< -I $(INCLUDESDIR)
 
 clean:
-		@/bin/rm -rf $(BIN)
+	@/bin/rm -rf $(BIN)
 
 fclean: clean
-		@/bin/rm -rf $(NAME)
+	@/bin/rm -rf $(NAME)
 
-e: fclean all
+re: fclean all

@@ -6,7 +6,7 @@
 /*   By: lmeyre <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 15:58:09 by lmeyre            #+#    #+#             */
-/*   Updated: 2018/05/25 15:21:04 by lmeyre           ###   ########.fr       */
+/*   Updated: 2018/07/05 21:34:35 by lmeyre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ static	int	basic_step(t_ptf *env, const char *format)
 	}
 	else if ((ft_strcmp_n("eoc}", &format[env->index + 1], 4)) == 0)
 	{
-		ft_putstr("\x1b[40m\x1B[37m");
+		ft_putstr("\033[0m");
 		return (5);
 	}
 	return (first_step(env, format));
